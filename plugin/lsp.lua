@@ -6,6 +6,8 @@ lsp_zero.on_attach(function(client, bufnr)
   lsp_zero.default_keymaps({buffer = bufnr})
 end)
 
-require('lspconfig').gopls.setup({})
+--require('lspconfig').gopls.setup({})
 require('lspconfig').luau_lsp.setup({})
+require('lspconfig').jdtls.setup({})
+
 
