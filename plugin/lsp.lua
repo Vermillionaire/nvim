@@ -7,7 +7,12 @@ lsp_zero.on_attach(function(client, bufnr)
 end)
 
 require('lspconfig').gopls.setup({})
-require('lspconfig').luau_lsp.setup({})
 require('lspconfig').jdtls.setup({})
 
 
+vim.api.nvim_create_autocmd("BufWritePre", {
+    buffer = buffer,
+    callback = function()
+        vim.lsp.buf.format { async = false }
+    end
+})
